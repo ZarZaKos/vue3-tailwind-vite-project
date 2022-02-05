@@ -1,1 +1,0 @@
-import{_ as e}from"./index.5f16187d.js";import{o,f as r}from"./vendor.64a17d31.js";const t={};function n(a,s,c,f,p,_){return o(),r("span",null,"Skeleton")}var i=e(t,[["render",n]]);export{i as default};
