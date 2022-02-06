@@ -8,12 +8,12 @@
 			leave-to-class="opacity-0"
     >
         <div
-            @keydown.esc="toggleSidebar"
-            v-show="drawerOpen && isMobile"
+            @keydown.esc="onClickFunction"
+            v-show="visible"
             class="z-10 fixed inset-0 transition-opacity"
         >
             <div
-                @click="toggleSidebar"
+                @click="onClickFunction"
                 class="absolute inset-0 bg-black opacity-50"
                 tabindex="0"
             ></div>
@@ -24,14 +24,8 @@
 <script>
 export default {
     props: {
-            drawerOpen: Boolean,
-            isMobile: Boolean,
-
+            visible: Boolean,
+            onClickFunction: Boolean,
         },
-    methods:{
-        toggleSidebar(){
-            this.$store.commit('toggleSidebar');
-        }
-    }
 }
 </script>

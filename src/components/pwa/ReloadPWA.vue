@@ -1,4 +1,5 @@
 <template>
+	<Overlay :visible="offlineReady || needRefresh" :onClickFunction="close"></Overlay>
 	<div v-if="offlineReady || needRefresh"
 		class="overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full flex">
 		<div class="relative px-4 w-full max-w-md h-full md:h-auto">
@@ -45,6 +46,9 @@
 </template>
 
 <script lang="ts">
+	import Overlay from "Components/navigation/Overlay.vue";
+
+
 	import {
 		defineComponent
 	} from "vue";
@@ -56,6 +60,7 @@
 	} = useRegisterSW();
 	export default defineComponent({
 		name: "ReloadPWA",
+		components:{Overlay},
 		setup() {
 			const {
 				offlineReady,

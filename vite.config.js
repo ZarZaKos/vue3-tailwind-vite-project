@@ -12,12 +12,14 @@ const VitePWAConfig = {
   includeAssets: ["/favicon.png"],
   strategies: "injectManifest",
   manifest: {
-    name: "Test PWA Project",
+    name: "PWA Test Project",
+    id: "ZarZaKos' PWA Test Project",
     short_name: "Test",
-    theme_color: "#ffffff",
-    start_url: "/vue3-tailwind-vite-project/",
+    theme_color: "#1f2937",
+    start_url: "/vue3-tailwind-vite-project?pwa-version=1.0.2",
+    scope: "/vue3-tailwind-vite-project/",
     display: "standalone",
-    background_color: "#ffffff",
+    background_color: "#1f2937",
     icons: [
       {
         src: "./img/icons/android-chrome-192x192.png",
