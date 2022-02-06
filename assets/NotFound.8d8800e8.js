@@ -1,0 +1,1 @@
+import{_ as o}from"./index.471b29a4.js";import{o as e,f as t}from"./vendor.64a17d31.js";const r={};function s(n,a,c,p,i,d){return e(),t("h1",null,"Oops, it looks like the page you're looking for doesn't exist.")}var _=o(r,[["render",s]]);export{_ as default};
