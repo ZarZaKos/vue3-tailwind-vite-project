@@ -35,14 +35,5 @@
         props: {
             drawerOpen: Boolean
         },
-        watch: {
-            drawerOpen: {
-                immediate: true,
-                handler(drawerOpen) {
-                    if (drawerOpen) document.body.style.setProperty("overflow", "hidden");
-                    else document.body.style.removeProperty("overflow");
-                }
-            }
-        }
     }
 </script>
