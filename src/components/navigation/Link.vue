@@ -1,5 +1,5 @@
 <template>
-    <router-link class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800" :to="url">
+    <router-link class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800" :to="url" @click="toggleSidebar">
         <font-awesome-icon :icon="icon"/>
     </router-link>
 </template>
@@ -9,6 +9,11 @@ export default {
     props:{
         icon:String,
         url:String
+    },
+    methods:{
+        toggleSidebar(){
+            this.$store.commit('toggleSidebar');
+        }
     }
 }
 </script>
