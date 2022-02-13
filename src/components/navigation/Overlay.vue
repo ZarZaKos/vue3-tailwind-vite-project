@@ -9,7 +9,7 @@
     >
         <div
             @keydown.esc="onClickFunction"
-            v-show="visible"
+            v-if="visible"
             class="z-10 fixed inset-0 transition-opacity"
         >
             <div
@@ -25,7 +25,7 @@
 export default {
     props: {
             visible: Boolean,
-            onClickFunction: Boolean,
+            onClickFunction: Function,
         },
 }
 </script>

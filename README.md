@@ -1,7 +1,33 @@
-# Vue 3 + Vite
+# About the project
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Frameworks and libraries used
 
-## Recommended IDE Setup
+- [Vue 3](https://v3.vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [Font Awesome](https://fontawesome.com)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+This proyect was made to test:
+- The Composition API feature on Vue 3
+- The framework Vite and its Hot Module Replacement (HMR) feature.
+- The VitePWA plugin to generate a full operating PWA on GitHub Pages.
+- The framework Tailwind.
+
+## Things that work nice
+
+    - The Drawer opens and close on mobile, using the hamburger button or the overlay on the background.
+    - The Drawer reads the window width to determine if should be open or not.
+    - The routes work fine on the main drawer.
+
+## Things that can be improved
+
+    - The views on the project are very few and should be customized and expanded.
+    - The colors used and the UX could be better.
+
+## Things that dont work
+
+    - The routes on the secondary drawer are not configured.
+
+## Things that would be nice to have
+
+    - A button to toggle the "light/dark" mode.

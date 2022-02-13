@@ -1,70 +1,34 @@
 <template>
-	<div class="flex h-screen text-gray-400 bg-gray-900">
-
-
-		<MainDrawer :drawerOpen="drawerOpen" :isMobile="isMobile"></MainDrawer>
-		<SecondaryDrawer :drawerOpen="drawerOpen"></SecondaryDrawer>
-		<Overlay :visible="drawerOpen && isMobile" :onClickFunction="toggleSidebar"></Overlay>
+	<div class="flex h-screen text-gray-800 bg-gray-50 dark:text-white dark:bg-gray-700">
+		<Drawer></Drawer>
 		<div :class="isMobile?'w-full':'w-full ml-72'">
-			<MainContent :isMobile="isMobile"></MainContent>
+			<NavBar></NavBar>
+			<router-view></router-view>
 			<ReloadPWA></ReloadPWA>
 		</div>
 	</div>
 </template>
 
 <script>
-	import MainDrawer from "Components/navigation/MainDrawer.vue";
-	import SecondaryDrawer from "Components/navigation/SecondaryDrawer.vue";
-	import MainContent from "Components/contents/MainContent.vue";
-	import Overlay from "Components/navigation/Overlay.vue";
-	import ReloadPWA from "Components/pwa/ReloadPWA.vue";
+	import { defineAsyncComponent } from "vue";
+
+	import { useIsMobile } 	from "Helpers/composables/mobile";
+    import { useDrawer } 	from "Helpers/composables/drawer";
+
+	import { useTheme } 	from "Helpers/tailwind/init";
+	useTheme();
 
 	export default {
 		components: {
-			MainDrawer,
-			SecondaryDrawer,
-			MainContent,
-			Overlay,
-			ReloadPWA
+			ReloadPWA 	: defineAsyncComponent(() => import("Components/pwa/ReloadPWA.vue")),
+			Drawer 		: defineAsyncComponent(() => import("Components/navigation/Drawer.vue")),
+			NavBar		: defineAsyncComponent(() => import("Components/contents/NavBar.vue"))
 		},
-		data() {
-			return {
-				isMobile: true,
-			}
-		},
-		beforeDestroy() {
-			if (typeof window === 'undefined') return
-			window.removeEventListener('resize', this.onResize, {
-				passive: true
-			})
-		},
-		mounted() {
-			this.onResize()
-			window.addEventListener('resize', this.onResize, {
-				passive: true
-			})
-		},
-		methods: {
-			onResize() {
-				this.isMobile = window.innerWidth < 600
-			},
-			toggleSidebar() {
-				this.$store.commit('toggleSidebar');
-			}
-		},
-		computed: {
-			drawerOpen() {
-				return this.$store.state.sidebarShowing || !this.isMobile
-			}
-		},
-		watch: {
-			drawerOpen: {
-				immediate: true,
-				handler(drawerOpen) {
-					if (drawerOpen && this.isMobile) document.body.style.setProperty("overflow", "hidden");
-					else document.body.style.removeProperty("overflow");
-				}
-			}
-		}
+		setup(){
+            const { isMobile } 		= useIsMobile();
+            const { drawerIsOpen } 	= useDrawer();
+
+            return { isMobile, drawerIsOpen };
+        },
 	}
 </script>

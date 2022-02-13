@@ -1,8 +1,9 @@
 import { createWebHashHistory, createRouter } from "@/vue-router";
 
-const Home      = () => import('Views/Home.vue');
-const NotFound  = () => import('Views/NotFound.vue');
-const Default   = () => import('Views/Default.vue');
+const Home          = () => import('Views/Home.vue');
+const NotFound      = () => import('Views/NotFound.vue');
+const Default       = () => import('Views/Default.vue');
+const WindowData    = () => import('Views/WindowData.vue');
 
 const routes = [
   {
@@ -13,27 +14,27 @@ const routes = [
   {
     path: "/characters",
     name: "Personajes",
-    component: Default
+    component: Home
   },
   {
-    path: "/bookmarks",
-    name: "Guardados",
-    component: Default
+    path: "/window-data",
+    name: "Window data",
+    component: WindowData
   },
   {
     path: "/user",
     name: "Usuario",
-    component: Default
+    component: Home
   },
   {
     path: "/tales",
     name: "Historias",
-    component: Default
+    component: Home
   },
   {
     path: "/logout",
     name: "Logout",
-    component: Default
+    component: Home
   },
   {
     path: "/:catchAll(.*)",

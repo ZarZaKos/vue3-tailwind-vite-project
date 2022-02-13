@@ -12,14 +12,22 @@ const store = createStore({
 					mail: ''
 				}
 			},
-			sidebarShowing: false,
+			drawer:{
+				isOpen:false
+			}
 		}
 	},
 
 
 	mutations: {
-		toggleSidebar(state) {
-			state.sidebarShowing = !state.sidebarShowing
+		openDrawer(state){
+			state.drawer.isOpen = true
+		},
+		closeDrawer(state){
+			state.drawer.isOpen = false
+		},
+		toggleDrawer(state) {
+			state.drawer.isOpen = !state.drawer.isOpen
 		}
 	}
 

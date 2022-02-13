@@ -16,7 +16,7 @@ const VitePWAConfig = {
     id: "ZarZaKos' PWA Test Project",
     short_name: "Test",
     theme_color: "#1f2937",
-    start_url: "/vue3-tailwind-vite-project?pwa-version=1.0.2",
+    start_url: "/vue3-tailwind-vite-project?pwa-version=1.0.3",
     scope: "/vue3-tailwind-vite-project/",
     display: "standalone",
     background_color: "#1f2937",
@@ -53,9 +53,10 @@ export default defineConfig({
   plugins: [vue(), VitePWA(VitePWAConfig)],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './node_modules/'),
+      '@':          path.resolve(__dirname, './node_modules/'),
       'Components': path.resolve(__dirname, './src/components'),
-      'Views': path.resolve(__dirname, './src/views'),
+      'Views':      path.resolve(__dirname, './src/views'),
+      'Helpers':      path.resolve(__dirname, './src/helpers'),
     },
   }
 })
